@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MessageTestTaskClient": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
