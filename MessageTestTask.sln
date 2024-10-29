@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTestTaskServer", "MessageTestTaskServer\MessageTestTaskServer.csproj", "{12C9D42D-4102-4C0A-8C17-007EF3E41678}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageTestTaskServer", "MessageTestTaskServer\MessageTestTaskServer.csproj", "{12C9D42D-4102-4C0A-8C17-007EF3E41678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageTestTaskClient", "MessageTestTaskClient\MessageTestTaskClient.csproj", "{A5316C18-21CC-4D21-A854-C8C280C6E9F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageTestTaskClient", "MessageTestTaskClient\MessageTestTaskClient.csproj", "{A5316C18-21CC-4D21-A854-C8C280C6E9F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{9EA72470-D0E6-4D19-B8F4-FD54903709D5}"
 	ProjectSection(SolutionItems) = preProject

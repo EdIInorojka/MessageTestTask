@@ -1,26 +1,20 @@
 version: '3.8'
 
 services:
-  message_test_task_client:
-    build:
-      context: .
-      dockerfile: MessageTestTaskClient/Dockerfile
-    ports:
-      - "5000:80"
-    environment:
-      - API_URL=http://message_test_task_server:8080/api/messages
-    networks:
-      - app-network
-
   message_test_task_server:
     build:
       context: .
       dockerfile: MessageTestTaskServer/Dockerfile
     ports:
       - "8080:8080"
-      - "8081:8081"
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "http://message_test_task_server/health"]
+      interval: 5s
+      timeout: 1s
+      retries: 12
+      start_period: 15s
 
 networks:
   app-network:

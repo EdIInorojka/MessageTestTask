@@ -34,6 +34,12 @@ namespace MessageTask.Controllers
                 throw new CustomException($"Некорректные данные: {argEx.Message}");
             }
         }
+
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            return Ok("server_isready");
+        }
     }
 }
 

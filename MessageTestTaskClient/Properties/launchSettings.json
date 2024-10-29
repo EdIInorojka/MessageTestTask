@@ -1,7 +1,10 @@
 {
   "profiles": {
     "MessageTestTaskClient": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "environmentVariables": {
+        "API_URL": "http://localhost:8080/Message"
+      }
     },
     "Container (Dockerfile)": {
       "commandName": "Docker"
