@@ -1,41 +1,50 @@
-﻿using DotNetEnv;
-using static System.Net.WebRequestMethods;
-using System.Net;
-
+﻿
 namespace MessageTestTaskClient
 {
     class Program
     {
+        // Статическое поле HttpClient для выполнения HTTP-запросов
         private static readonly HttpClient client = new HttpClient();
 
+        // Асинхронный метод Main, который является точкой входа в приложение
         static async Task Main(string[] args)
         {
+            // Получение URL API из переменных окружения
             string apiUrl = Environment.GetEnvironmentVariable("API_URL");
 
+            // Бесконечный цикл для периодического выполнения запроса
             while (true)
             {
+                // Асинхронный вызов метода для получения сообщения
                 await GetMessageAsync(apiUrl);
+                // Задержка на 1 секунду перед следующим запросом
                 await Task.Delay(1000);
             }
         }
 
+        // Асинхронный метод для выполнения GET-запроса по указанному URL
         private static async Task GetMessageAsync(string url)
         {
             try
             {
+                // Выполнение асинхронного запроса и получение ответа в виде строки
                 var response = await client.GetStringAsync(url);
+                // Вывод полученного сообщения в консоль
                 Console.WriteLine($"{response}");
             }
             catch (HttpRequestException ex)
             {
+                // Обработка исключений, связанных с HTTP-запросами
                 Console.WriteLine($"Ошибка запроса: {ex.Message}");
             }
             catch (Exception ex)
             {
+                // Обработка всех остальных исключений
                 Console.WriteLine($"Ошибка: {ex.Message}");
             }
         }
     }
+
 }
 
 
