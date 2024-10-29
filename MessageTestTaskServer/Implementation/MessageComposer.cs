@@ -8,7 +8,7 @@ namespace MessageTestTaskServer.Implementation
         {
             List<int> numbers = ConvertDateToList(date);
             int evenCount = numbers.Count(x => x % 2 == 0);
-            int oddCount = numbers.Count(y => y % 2 == 1);
+            int oddCount = numbers.Count() - evenCount;
 
             if (evenCount > oddCount) return "чет!";
             if (oddCount > evenCount) return "нечет!";
