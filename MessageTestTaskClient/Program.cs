@@ -17,6 +17,7 @@ namespace MessageTestTaskClient
             {
                 // Асинхронный вызов метода для получения сообщения
                 await GetMessageAsync(apiUrl);
+
                 // Задержка на 1 секунду перед следующим запросом
                 await Task.Delay(1000);
             }
@@ -29,8 +30,7 @@ namespace MessageTestTaskClient
             {
                 // Выполнение асинхронного запроса и получение ответа в виде строки
                 var response = await client.GetStringAsync(url);
-                // Вывод полученного сообщения в консоль
-                Console.WriteLine($"{response}");
+                WriteMessageToConsole(response);
             }
             catch (HttpRequestException ex)
             {
@@ -42,6 +42,19 @@ namespace MessageTestTaskClient
                 // Обработка всех остальных исключений
                 Console.WriteLine($"Ошибка: {ex.Message}");
             }
+        }
+
+        const string format = "|{0,10}|{1,10}|{2,10}|";
+
+        private static void WriteMessageToConsole(string message)
+        {
+            List<string> response = ParseResponse(message);
+            Console.WriteLine(String.Format(format, DateTime.Now.ToString(), response[0], response[1]));
+        }
+
+        private static List<string> ParseResponse(string response)
+        {
+            return response.Split('|').ToList();
         }
     }
 

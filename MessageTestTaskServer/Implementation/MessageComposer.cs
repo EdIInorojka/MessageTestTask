@@ -16,10 +16,19 @@ namespace MessageTestTaskServer.Implementation
             // Подсчет нечетных чисел (всего чисел минус четные)
             int oddCount = numbers.Count() - evenCount;
 
+            string message = "";
+
             // Формирование сообщения на основе сравнений четных и нечетных чисел
-            if (evenCount > oddCount) return "чет!";  // Если четных больше, вернуть "чет!"
-            if (oddCount > evenCount) return "нечет!"; // Если нечетных больше, вернуть "нечет!"
-            return "равно!"; // Если их количество одинаково, вернуть "равно!"
+            if (evenCount > oddCount) { message = "чет!"; }  // Если четных больше, вернуть "чет!"
+            else if (oddCount > evenCount) { message = "нечет!"; } // Если нечетных больше, вернуть "нечет!"
+            else { message = "равно!"; }; // Если их количество одинаково, вернуть "равно!"
+
+            return AddTimeToMessage(date, message);
+        }
+
+        private string AddTimeToMessage(DateTime date, string message)
+        {
+            return date.ToString() + "|" + message;
         }
 
         // Приватный метод для преобразования даты в список чисел
